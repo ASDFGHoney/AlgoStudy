@@ -4,4 +4,4 @@ project(AlgoStudy)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(AlgoStudy
-        10799.cpp)
+        SWE_no1/main.cpp SWE_no1/solution.cpp)
