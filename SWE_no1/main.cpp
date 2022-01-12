@@ -14,7 +14,7 @@ extern void init();
 extern int buy(int mNumber, int mStock, int mQuantity, int mPrice);
 extern int sell(int mNumber, int mStock, int mQuantity, int mPrice);
 extern void cancel(int mNumber);
-extern int bestProfit(int mStock);
+extern int bestProfit(int m);
 
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
@@ -28,17 +28,20 @@ static bool run()
     int userAns, ans;
 
     bool isCorrect = false;
+    int count = 2;
 
     scanf("%d", &numQuery);
 
     for (int i = 0; i < numQuery; ++i)
     {
+        count++;
         int cmd;
         scanf("%d", &cmd);
         switch (cmd)
         {
             case CMD_INIT:
                 init();
+                printf("%d init\n", count);
                 isCorrect = true;
                 break;
             case CMD_BUY:
@@ -48,7 +51,9 @@ static bool run()
                 if (userAns != ans)
                 {
                     isCorrect = false;
-                }
+                    printf("%d F=====\n", count);
+                }else
+                    printf("%d T\n", count);
                 break;
             case CMD_SELL:
                 scanf("%d %d %d %d", &mNumber, &mStock, &mQuantity, &mPrice);
@@ -57,11 +62,14 @@ static bool run()
                 if (userAns != ans)
                 {
                     isCorrect = false;
-                }
+                    printf("%d F=====\n", count);
+                }else
+                    printf("%d T\n", count);
                 break;
             case CMD_CANCEL:
                 scanf("%d", &mNumber);
                 cancel(mNumber);
+                printf("%d cancel\n", count);
                 break;
             case CMD_BEST_PROFIT:
                 scanf("%d", &mStock);
@@ -70,10 +78,13 @@ static bool run()
                 if (userAns != ans)
                 {
                     isCorrect = false;
-                }
+                    printf("%d F=====\n", count);
+                }else
+                    printf("%d T\n", count);
                 break;
             default:
                 isCorrect = false;
+                printf("%d F default\n", count);
                 break;
         }
     }
