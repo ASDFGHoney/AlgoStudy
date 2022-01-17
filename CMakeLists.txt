@@ -4,4 +4,4 @@ project(AlgoStudy)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(AlgoStudy
-        SWE_no1/main.cpp SWE_no1/solution.cpp)
+        samsungSW_academy/비트연산/1288_새로운불면증치료법/main.cpp)
